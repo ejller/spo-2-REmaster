@@ -10,6 +10,14 @@ napi_value first_mode_fn(napi_env env, napi_callback_info info) {
   return napi_result;
 }
 
+
+napi_value close_file_system_fn(napi_env env, napi_callback_info info) {
+  napi_value napi_result;
+  char *result = closeFileSystem();
+  napi_create_string_utf8(env, result, -1, &napi_result);
+  return napi_result;
+}
+
 napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_value argv[1];
   char *path="/home/spo/test.fs";
@@ -43,6 +51,10 @@ napi_value Init(napi_env env, napi_value exports) {
   napi_value open_file_system;
   napi_create_function(env, NULL, 0, open_file_system_fn, NULL, &open_file_system);
   napi_set_named_property(env, exports, "open_file_system", open_file_system);
+
+  napi_value close_file_system;
+  napi_create_function(env, NULL, 0, close_file_system_fn, NULL, &close_file_system);
+  napi_set_named_property(env, exports, "close_file_system", close_file_system);
 
   napi_value fn2;
   napi_create_function(env, NULL, 0, MyFunction2, NULL, &fn2);

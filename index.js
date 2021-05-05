@@ -41,7 +41,7 @@ const main = () => {
                 const value = getCommand();
                 run = parseCommand(fileSystem, value)
             }
-            // addon.closeFileSystem()
+            addon.close_file_system()
         } else {
             console.log('Invalid path')
         }
