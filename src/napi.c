@@ -35,9 +35,9 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_value argv[1];
 //  char *path="/home/new.fs";
 
-  char PathName[100];
+  char PathName[10024];
   size_t pathResult;
-  napi_get_value_string_utf8(env, argv[0], PathName, 100, &pathResult);
+  napi_get_value_string_utf8(env, argv[0], PathName, 10024, &pathResult);
 
   napi_value napi_result;
   int result = openFileSystem(PathName);
