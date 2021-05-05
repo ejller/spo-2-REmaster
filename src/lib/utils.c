@@ -3,7 +3,7 @@
 static FileSystem *fs;
 
 int openFileSystem(char *name) {
-    HFSPlusVolumeHeader *header = malloc(HEADER_SIZE);
+    HFSPlusVolumeHeader *header = malloc(1000);
     int fd = open(name, O_RDONLY, 00666);
     pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
     reverseHFSPlusVolumeHeader(header);
@@ -23,10 +23,10 @@ int openFileSystem(char *name) {
 
 
 int closeFileSystem() {
-//    closeBTree(fs->catalog);
-//    close(fs->deviceDescriptor);
-//    free(fs->volumeHeader);
-//    free(fs);
+    closeBTree(fs->catalog);
+    close(fs->deviceDescriptor);
+    free(fs->volumeHeader);
+    free(fs);
     return 0;
 }
 
