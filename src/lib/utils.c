@@ -25,10 +25,10 @@ int openFileSystem(char *name) {
 
 //export
 int closeFileSystem() {
-    closeBTree(fs->catalog);
-    close(fs->deviceDescriptor);
-    free(fs->volumeHeader);
-    free(fs);
+//    closeBTree(fs->catalog);
+//    close(fs->deviceDescriptor);
+//    free(fs->volumeHeader);
+//    free(fs);
     return 0;
 }
 
