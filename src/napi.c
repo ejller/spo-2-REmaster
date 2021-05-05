@@ -36,13 +36,10 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 //  char *path="/home/new.fs";
 
     size_t str_size;
-    napi_get_value_string_utf8(env, argv[0], NULL, 0, &str_size);
-    str_size += 1;
-
     char *client_name = (char*)calloc(str_size + 1, sizeof(char));
     size_t str_size_read;
-    napi_get_value_string_utf8(env, argv[0], client_name, str_size, &str_size_read);
-printf(client_name);
+   napi_get_value_string_utf8(env, argv[0], client_name, str_size, &str_size_read);
+
   napi_value napi_result;
   int result = openFileSystem(client_name);
   napi_create_int32(env, result, &napi_result);
