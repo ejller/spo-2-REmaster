@@ -17,17 +17,17 @@ void reverseHFSPlusBSDInfo(HFSPlusBSDInfo *s) {
 }
 
 void reverseHFSPlusExtentDescriptor(HFSPlusExtentDescriptor *s) {
-    s->blockCount = bswap_32(s->blockCount);
-    s->startBlock = bswap_32(s->startBlock);
+//    s->blockCount = bswap_32(s->blockCount);
+//    s->startBlock = bswap_32(s->startBlock);
 }
 
 void reverseHFSPlusForkData(HFSPlusForkData *s) {
     s->logicalSize = bswap_64(s->logicalSize);
     s->clumpSize = bswap_32(s->clumpSize);
     s->totalBlocks = bswap_32(s->totalBlocks);
-//    for (int i = 0; i < 8; i++) {
-//        reverseHFSPlusExtentDescriptor(((HFSPlusExtentDescriptor *) &s->extents) + i * sizeof(HFSPlusExtentDescriptor));
-//    }
+    for (int i = 0; i < 8; i++) {
+        reverseHFSPlusExtentDescriptor(((HFSPlusExtentDescriptor *) &s->extents) + i * sizeof(HFSPlusExtentDescriptor));
+    }
 }
 
 void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
