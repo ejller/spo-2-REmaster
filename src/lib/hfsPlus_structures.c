@@ -22,12 +22,12 @@ void reverseHFSPlusExtentDescriptor(HFSPlusExtentDescriptor *s) {
 }
 
 void reverseHFSPlusForkData(HFSPlusForkData *s) {
-    s->logicalSize = bswap_64(s->logicalSize);
-    s->clumpSize = bswap_32(s->clumpSize);
-    s->totalBlocks = bswap_32(s->totalBlocks);
-    for (int i = 0; i < 8; i++) {
-        reverseHFSPlusExtentDescriptor(((HFSPlusExtentDescriptor *) &s->extents) + i * sizeof(HFSPlusExtentDescriptor));
-    }
+//    s->logicalSize = bswap_64(s->logicalSize);
+//    s->clumpSize = bswap_32(s->clumpSize);
+//    s->totalBlocks = bswap_32(s->totalBlocks);
+//    for (int i = 0; i < 8; i++) {
+//        reverseHFSPlusExtentDescriptor(((HFSPlusExtentDescriptor *) &s->extents) + i * sizeof(HFSPlusExtentDescriptor));
+//    }
 }
 
 void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
@@ -54,11 +54,11 @@ void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
     for (int i = 0; i < 8; i++) {
         s->finderInfo[i] = bswap_32(s->finderInfo[i]);
     }
-//    reverseHFSPlusForkData(&s->allocationFile);
-//    reverseHFSPlusForkData(&s->attributesFile);
-//    reverseHFSPlusForkData(&s->extentsFile);
-//    reverseHFSPlusForkData(&s->catalogFile);
-//    reverseHFSPlusForkData(&s->startupFile);
+    reverseHFSPlusForkData(&s->allocationFile);
+    reverseHFSPlusForkData(&s->attributesFile);
+    reverseHFSPlusForkData(&s->extentsFile);
+    reverseHFSPlusForkData(&s->catalogFile);
+    reverseHFSPlusForkData(&s->startupFile);
 }
 
 void reverseBTNodeDescriptor(BTNodeDescriptor *s) {
