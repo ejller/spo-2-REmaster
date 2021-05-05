@@ -35,11 +35,26 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_value argv[1];
 //  char *path="/home/new.fs";
 
-  char PathName[4];
-  size_t pathResult;
-  napi_get_value_string_utf8(env, argv[0], PathName, 4, &pathResult);
-  napi_value napi_result;
-  int result = openFileSystem(pathResult);
+    napi_status status;
+  size_t argc = 1;
+  int number = 0;
+  napi_value argv[1];
+  status = napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
+
+  if (status != napi_ok) {
+    napi_throw_error(env, NULL, "Failed to parse arguments");
+  }
+
+  status = napi_get_value_int32(env, argv[0], &number);
+
+  if (status != napi_ok) {
+    napi_throw_error(env, NULL, "Invalid number was passed as argument");
+
+//  char PathName[4];
+//  size_t pathResult;
+//  napi_get_value_string_utf8(env, argv[0], PathName, 4, &pathResult);
+//  napi_value napi_result;
+  int result = openFileSystem("test");
   napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
