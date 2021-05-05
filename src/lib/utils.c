@@ -1,9 +1,9 @@
 #include <utils.h>
 
-//static FileSystem *fs;
+static FileSystem *fs;
 
 int openFileSystem(char *name) {
-    HFSPlusVolumeHeader *header = malloc(1024);
+    HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
     int fd = open(name, O_RDONLY, 00666);
     pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
     reverseHFSPlusVolumeHeader(header);
@@ -13,7 +13,7 @@ int openFileSystem(char *name) {
         fileSystem->deviceDescriptor = fd;
         fileSystem->catalog = openBTree(fileSystem, typeCatalog);
         fileSystem->pwd = kHFSRootFolderID;
-//        fs = fileSystem;
+        fs = fileSystem;
         return 0;
     }
     free(header);
@@ -22,7 +22,7 @@ int openFileSystem(char *name) {
 }
 
 
-int closeFileSystem(FileSystem *fs) {
+int closeFileSystem() {
     closeBTree(fs->catalog);
     close(fs->deviceDescriptor);
     free(fs->volumeHeader);
@@ -31,7 +31,7 @@ int closeFileSystem(FileSystem *fs) {
 }
 
 
-char *ls(FileSystem *fs) {
+char *ls() {
     char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
      NodeInfo *info =
@@ -69,7 +69,7 @@ char *ls(FileSystem *fs) {
 
 
 //export
-char *cd(FileSystem *fs, char *path) {
+char *cd(char *path) {
      char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
     if (path != NULL) {
@@ -89,7 +89,7 @@ char *cd(FileSystem *fs, char *path) {
         return "";
 }
 
-char *pwd(FileSystem *fs) {
+char *pwd() {
     char name[256];
     char tmp[256];
      char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
@@ -116,7 +116,7 @@ char *pwd(FileSystem *fs) {
 
 
 //export
-char *cp(FileSystem *fs, char *path, char *outPath) {
+char *cp(char *path, char *outPath) {
      char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
     if (path == NULL || outPath == NULL) {
