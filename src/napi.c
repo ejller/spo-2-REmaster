@@ -10,7 +10,7 @@ napi_value first_mode_fn(napi_env env, napi_callback_info info) {
   return napi_result;
 }
 
-napi_value pwd_fn(napi_env env, napi_callback_info info) {
+napi_value ls_fn(napi_env env, napi_callback_info info) {
   napi_value napi_result;
   char *result = ls();
   napi_create_string_utf8(env, result, -1, &napi_result);
@@ -54,9 +54,9 @@ napi_value Init(napi_env env, napi_value exports) {
 //  napi_set_named_property(env, exports, "ls", ls);
 //
 
-  napi_value pwd;
-  napi_create_function(env, NULL, 0, pwd_fn, NULL, &pwd);
-  napi_set_named_property(env, exports, "pwd", pwd);
+  napi_value ls;
+  napi_create_function(env, NULL, 0, ls_fn, NULL, &ls);
+  napi_set_named_property(env, exports, "ls", ls);
 
   napi_value open_file_system;
   napi_create_function(env, NULL, 0, open_file_system_fn, NULL, &open_file_system);
