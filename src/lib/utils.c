@@ -3,8 +3,7 @@
 static FileSystem *fs;
 
 int openFileSystem(char *name) {
-//    HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
-    HFSPlusVolumeHeader *header = malloc(1024);
+    HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader)+4);
     int fd = open(name, O_RDONLY, 00666);
     pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
     reverseHFSPlusVolumeHeader(header);
@@ -120,16 +119,16 @@ char *cp(char *path, char *outPath) {
     char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
     output[0] = '\0';
     if (path == NULL || outPath == NULL) {
-       strcat(output, "Empty path\n");
+       strcat(output, "\nEmpty path\n");
         return output;
     }
     NodeInfo *info = findFileByPath(fs, fs->pwd, path);
     if (info->id == 0) {
-         strcat(output, "No such file or directory\n");
+         strcat(output, "\nNo such file or directory\n");
     } else if (copy(fs, info, outPath) == 0) {
-         strcat(output, "Successfull\n");
+         strcat(output, "\nSuccessfull\n");
     } else {
-         strcat(output, "Error\n");
+         strcat(output, "\nError\n");
     }
     free(info);
     return output;
