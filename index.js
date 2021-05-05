@@ -6,8 +6,11 @@ const main = () => {
     if (mode === 1) {
         console.log(addon.first_mode());
     } else {
-        // const path = getFilePath();
-        // const fileSystem = library.openFileSystem(path)
+        const path = getFilePath();
+        const fileSystem = library.open_file_system(path)
+        if(fileSystem==0){
+            console.log('work')
+        }
         // if (fileSystem.hexAddress() != '(nil)') {
         //     let run = true
         //     while (run) {
