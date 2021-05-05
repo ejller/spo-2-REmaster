@@ -17,7 +17,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 
   napi_value napi_result;
   int result = openFileSystem(path);
-  napi_create_int32(env, result, -1, &napi_result);
+  napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
 
