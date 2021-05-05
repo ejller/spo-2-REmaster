@@ -1,7 +1,5 @@
 #include <utils.h>
 
-static FileSystem *fs;
-
 int openFileSystem(char *name) {
     HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
     int fd = open(name, O_RDONLY, 00666);
@@ -13,7 +11,7 @@ int openFileSystem(char *name) {
         fileSystem->deviceDescriptor = fd;
         fileSystem->catalog = openBTree(fileSystem, typeCatalog);
         fileSystem->pwd = kHFSRootFolderID;
-        fs = fileSystem;
+//        fs = fileSystem;
         return 0;
     }
     free(header);
