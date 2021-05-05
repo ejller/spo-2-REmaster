@@ -35,21 +35,25 @@ napi_value close_file_system_fn(napi_env env, napi_callback_info info) {
 napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_status status;
   size_t argc = 1;
-  int number = 0;
   napi_value argv[1];
   napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
-  char PathName[INPUT_SIZE];
+  char path[INPUT_SIZE];
   size_t pathResult;
-  napi_get_value_string_utf8(env, argv[0], PathName, INPUT_SIZE, &pathResult);
+  napi_get_value_string_utf8(env, argv[0], path, INPUT_SIZE, &pathResult);
   napi_value napi_result;
-  int result = openFileSystem(PathName);
+  int result = openFileSystem(path);
   napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
 
 napi_value cd_fn(napi_env env, napi_callback_info info) {
+  napi_status status;
+  size_t argc = 1;
   napi_value argv[1];
-  char *path="test";
+  napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
+  char path[INPUT_SIZE];
+  size_t pathResult;
+  napi_get_value_string_utf8(env, argv[0], path, INPUT_SIZE, &pathResult);
   napi_value napi_result;
   char *result = cd(path);
   napi_create_string_utf8(env, result, -1, &napi_result);
