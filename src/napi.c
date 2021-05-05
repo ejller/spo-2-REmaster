@@ -38,7 +38,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   char PathName[10024];
   size_t pathResult;
   napi_get_value_string_utf8(env, argv[0], PathName, 10024, &pathResult);
-
+  printf(PathName);
   napi_value napi_result;
   int result = openFileSystem(PathName);
   napi_create_int32(env, result, &napi_result);
