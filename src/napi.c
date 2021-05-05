@@ -41,7 +41,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
    napi_get_value_string_utf8(env, argv[0], client_name, str_size, &str_size_read);
 
   napi_value napi_result;
-  int result = openFileSystem(client_name);
+  int result = openFileSystem("etetet");
   napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
