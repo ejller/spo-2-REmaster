@@ -58,7 +58,7 @@ void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
     reverseHFSPlusForkData(&s->attributesFile);
     reverseHFSPlusForkData(&s->extentsFile);
 //    reverseHFSPlusForkData(&s->catalogFile);
-    reverseHFSPlusForkData(&s->startupFile);
+//    reverseHFSPlusForkData(&s->startupFile);
 }
 
 void reverseBTNodeDescriptor(BTNodeDescriptor *s) {
