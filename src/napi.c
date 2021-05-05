@@ -22,8 +22,9 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 //  napi_get_value_string_utf8(env, argv[0], path, str_size, &str_size_read);
 
   napi_value napi_result;
-  char [] test = "test";
-  int result = openFileSystem(test);
+  char *inputString = malloc(1024);
+  strcpy(inputString, "test")
+  int result = openFileSystem(inputString);
   napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
