@@ -1,0 +1,23 @@
+{
+  "name": "spo-2-remaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejller/spo-2-REmaster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejller/spo-2-REmaster/issues"
+  },
+  "homepage": "https://github.com/ejller/spo-2-REmaster#readme",
+  "dependencies": {
+    "cmake-js": "^6.1.0",
+    "node-addon-api": "^3.1.0"
+  }
+}
