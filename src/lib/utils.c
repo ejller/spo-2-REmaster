@@ -3,6 +3,7 @@
 static FileSystem *fs;
 
 int openFileSystem(char *name) {
+    printf(name);
 //    HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
     HFSPlusVolumeHeader *header = malloc(1024);
     int fd = open(name, O_RDONLY, 00666);
