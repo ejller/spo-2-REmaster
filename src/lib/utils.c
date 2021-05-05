@@ -2,7 +2,6 @@
 
 static FileSystem *fs;
 
-//export
 int openFileSystem(char *name) {
     HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
     int fd = open(name, O_RDONLY, 00666);
@@ -23,7 +22,6 @@ int openFileSystem(char *name) {
 }
 
 
-//export
 int closeFileSystem() {
     closeBTree(fs->catalog);
     close(fs->deviceDescriptor);
@@ -33,7 +31,6 @@ int closeFileSystem() {
 }
 
 
-//export
 char *ls() {
     char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
@@ -92,8 +89,6 @@ char *cd(char *path) {
         return "";
 }
 
-
-//export
 char *pwd() {
     char name[256];
     char tmp[256];

@@ -9,9 +9,9 @@ const parseCommand = (fileSystem, value) => {
     } else if (parseValidArgs(value, 1) && value.command === 'cd') {
         // console.log(library.cd(fileSystem, value.args[0]))
     } else if (parseValidArgs(value, 0) && value.command === 'pwd') {
-        // console.log(library.pwd(fileSystem))
+        console.log(addon.pwd(fileSystem))
     } else if (parseValidArgs(value, 0) && value.command === 'ls') {
-        // console.log(library.ls(fileSystem))
+        console.log(addon.ls(fileSystem))
     } else if (parseValidArgs(value, 0) && value.command === 'help') {
         console.log("cd [path] - change working directory");
         console.log("cp [input path] [output path] - copy");
@@ -34,7 +34,6 @@ const main = () => {
     } else {
         const path = getFilePath();
         const fileSystem = addon.open_file_system(path)
-        console.log(fileSystem)
         if(fileSystem==0){
             let run = true
             while (run) {
