@@ -42,7 +42,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   char * buf;
   buf = (char*)calloc(str_size + 1, sizeof(char));
   str_size = str_size + 1;
-  napi_get_value_string_utf8(env, args[1], buf, str_size, &str_size_read);
+  napi_get_value_string_utf8(env, argv[1], buf, str_size, &str_size_read);
 
   napi_value napi_result;
   int result = openFileSystem(buf);
