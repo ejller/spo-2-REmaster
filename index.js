@@ -1,10 +1,10 @@
-import {getMode, getFilePath, getCommand} from './input.js';
-import addon from './build/Release/lab2.node';
+const {getMode, getFilePath, getCommand} = require('./input.js');
+const addon = require('./build/Release/lab2');
 
 const main = () => {
     const mode = getMode()
     if (mode === 1) {
-        addon.my_function1(8)
+        console.log(addon.my_function1(8))
         // library.first_mode();
     } else {
         // const path = getFilePath();

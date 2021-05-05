@@ -1,6 +1,6 @@
-import readlineSync from 'readline-sync';
+const readlineSync = require('readline-sync');
 
-export const getMode = () => {
+exports.getMode = () => {
     let mode = 0;
     while (mode === 0) {
         const input = parseInt(readlineSync.question('Select the mod in which the program will run (1/2): '));
@@ -13,9 +13,9 @@ export const getMode = () => {
     return mode;
 }
 
-export const getFilePath = () => readlineSync.question('Enter path: ')
+exports.getFilePath = () => readlineSync.question('Enter path: ')
 
-export const getCommand = () => {
+exports.getCommand = () => {
     const input = readlineSync.question('> ')
     const tmp = input.split(' ')
     if (tmp.length > 4) console.log('Invalid args')
