@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(src)
 include_directories(src/lib)
 
-add_library(${CMAKE_PROJECT_NAME} SHARED src/napi.c src/lib/first_mode.h src/lib/first_mode.c)
+add_library(${CMAKE_PROJECT_NAME} SHARED src/napi.c src/lib/first_mode.h src/lib/first_mode.c src/lib/hfsPlus_structures.h src/lib/hfsPlus_structures.c src/lib/utils.c)
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/node_modules/node-addon-api
