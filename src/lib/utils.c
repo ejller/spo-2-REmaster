@@ -4,7 +4,6 @@ static FileSystem *fs;
 
 //export
 int openFileSystem(char *name) {
-printf("%s",name);
     HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
     int fd = open(name, O_RDONLY, 00666);
     pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
