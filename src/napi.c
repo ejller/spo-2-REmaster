@@ -12,17 +12,17 @@ napi_value first_mode_fn(napi_env env, napi_callback_info info) {
 
 napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_value argv[1];
-  char *path;
-  size_t str_size;
-  napi_get_value_string_utf8(env, argv[0], NULL, 0, &str_size);
-  str_size += 1;
-
-  path = (char*)calloc(str_size + 1, sizeof(char));
-  size_t str_size_read;
-  napi_get_value_string_utf8(env, argv[0], path, str_size, &str_size_read);
+//  char *path;
+//  size_t str_size;
+//  napi_get_value_string_utf8(env, argv[0], NULL, 0, &str_size);
+//  str_size += 1;
+//
+//  path = (char*)calloc(str_size + 1, sizeof(char));
+//  size_t str_size_read;
+//  napi_get_value_string_utf8(env, argv[0], path, str_size, &str_size_read);
 
   napi_value napi_result;
-  int result = openFileSystem(path);
+  int result = openFileSystem("test");
   napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
