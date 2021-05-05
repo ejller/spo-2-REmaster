@@ -2,6 +2,7 @@
 #include <first_mode.h>
 #include <utils.h>
 
+#define INPUT_SIZE 256
 
 napi_value first_mode_fn(napi_env env, napi_callback_info info) {
   napi_value napi_result;
@@ -44,15 +45,10 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
     napi_throw_error(env, NULL, "Failed to parse arguments");
   }
 
-  char PathName[20];
+  char PathName[INPUT_SIZE];
   size_t pathResult;
-  status = napi_get_value_string_utf8(env, argv[0], PathName, 20, &pathResult);
+  status = napi_get_value_string_utf8(env, argv[0], PathName, INPUT_SIZE, &pathResult);
 
-  if (status != napi_ok) {
-    napi_throw_error(env, NULL, "Invalid number was passed as argument");
-}
-
-//  napi_get_value_string_utf8(env, argv[0], PathName, 4, &pathResult);
   napi_value napi_result;
   int result = openFileSystem(PathName);
   napi_create_int32(env, result, &napi_result);
