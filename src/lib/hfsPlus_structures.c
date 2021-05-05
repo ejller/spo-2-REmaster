@@ -55,8 +55,8 @@ void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
         s->finderInfo[i] = bswap_32(s->finderInfo[i]);
     }
     reverseHFSPlusForkData(&s->allocationFile);
-//    reverseHFSPlusForkData(&s->attributesFile);
-//    reverseHFSPlusForkData(&s->extentsFile);
+    reverseHFSPlusForkData(&s->attributesFile);
+    reverseHFSPlusForkData(&s->extentsFile);
 //    reverseHFSPlusForkData(&s->catalogFile);
 //    reverseHFSPlusForkData(&s->startupFile);
 }
