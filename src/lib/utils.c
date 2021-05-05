@@ -5,20 +5,20 @@ static FileSystem *fs;
 //export
 int openFileSystem(char *name) {
     HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
-    int fd = open(name, O_RDONLY, 00666);
-    pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
-    reverseHFSPlusVolumeHeader(header);
-    if (header->signature == HFS_PLUS_SIGNATURE && header->version == HFS_PLUS_VERSION) {
-        FileSystem *fileSystem = malloc(sizeof(FileSystem));
-        fileSystem->volumeHeader = header;
-        fileSystem->deviceDescriptor = fd;
-        fileSystem->catalog = openBTree(fileSystem, typeCatalog);
-        fileSystem->pwd = kHFSRootFolderID;
-        fs = fileSystem;
-        return 0;
-    }
-    free(header);
-    close(fd);
+//    int fd = open(name, O_RDONLY, 00666);
+//    pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
+//    reverseHFSPlusVolumeHeader(header);
+//    if (header->signature == HFS_PLUS_SIGNATURE && header->version == HFS_PLUS_VERSION) {
+//        FileSystem *fileSystem = malloc(sizeof(FileSystem));
+//        fileSystem->volumeHeader = header;
+//        fileSystem->deviceDescriptor = fd;
+//        fileSystem->catalog = openBTree(fileSystem, typeCatalog);
+//        fileSystem->pwd = kHFSRootFolderID;
+//        fs = fileSystem;
+//        return 0;
+//    }
+//    free(header);
+//    close(fd);
     return -1;
 }
 
