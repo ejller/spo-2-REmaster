@@ -55,9 +55,9 @@ napi_value Init(napi_env env, napi_value exports) {
 //  napi_set_named_property(env, exports, "ls", ls);
 //
 
-//  napi_value pwd;
-//  napi_create_function(env, NULL, 0, pwd_fn, NULL, &pwd);
-//  napi_set_named_property(env, exports, "pwd", pwd);
+  napi_value pwd;
+  napi_create_function(env, NULL, 0, pwd_fn, NULL, &pwd);
+  napi_set_named_property(env, exports, "pwd", pwd);
 
   napi_value open_file_system;
   napi_create_function(env, NULL, 0, open_file_system_fn, NULL, &open_file_system);

@@ -9,7 +9,7 @@ const parseCommand = (fileSystem, value) => {
     } else if (parseValidArgs(value, 1) && value.command === 'cd') {
         // console.log(library.cd(fileSystem, value.args[0]))
     } else if (parseValidArgs(value, 0) && value.command === 'pwd') {
-        // console.log(addon.pwd())
+        console.log(addon.pwd())
     } else if (parseValidArgs(value, 0) && value.command === 'ls') {
         // console.log(addon.pwd())
     } else if (parseValidArgs(value, 0) && value.command === 'help') {
