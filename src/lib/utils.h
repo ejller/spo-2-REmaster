@@ -9,7 +9,7 @@
 
 #define HEADER_OFFSET 1024
 #define OUTPUT_SIZE 256
-#define HEADER_SIZE 256
+#define HEADER_SIZE 512
 
 typedef struct File {
     long size;
