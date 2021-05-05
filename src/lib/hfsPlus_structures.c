@@ -18,7 +18,7 @@ void reverseHFSPlusBSDInfo(HFSPlusBSDInfo *s) {
 
 void reverseHFSPlusExtentDescriptor(HFSPlusExtentDescriptor *s) {
     s->blockCount = bswap_32(s->blockCount);
-//    s->startBlock = bswap_32(s->startBlock);
+    s->startBlock = bswap_32(s->startBlock);
 }
 
 void reverseHFSPlusForkData(HFSPlusForkData *s) {
