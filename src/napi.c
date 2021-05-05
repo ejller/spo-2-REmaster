@@ -70,9 +70,9 @@ napi_value cp_fn(napi_env env, napi_callback_info info) {
   size_t path1Result;
   size_t path2Result;
   napi_get_value_string_utf8(env, argv[0], path1, INPUT_SIZE, &path1Result);
-//  napi_get_value_string_utf8(env, argv[1], path2, INPUT_SIZE, &path2Result);
+  napi_get_value_string_utf8(env, argv[1], path2, INPUT_SIZE, &path2Result);
   napi_value napi_result;
-  char *result = cp(path1, "ddsds");
+  char *result = cp(path1, path2);
   napi_create_string_utf8(env, result, -1, &napi_result);
   return napi_result;
 }
