@@ -34,7 +34,7 @@ napi_value close_file_system_fn(napi_env env, napi_callback_info info) {
 
 napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_value argv[1];
-  char *path="/home/spo/test.fs";
+  char *path="/home/new.fs";
   napi_value napi_result;
   int result = openFileSystem(path);
   napi_create_int32(env, result, &napi_result);
