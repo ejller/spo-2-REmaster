@@ -13,7 +13,7 @@ napi_value first_mode_fn(napi_env env, napi_callback_info info) {
 napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   char *path =(char*)malloc(2);
   napi_value argv[1];
-  napi_get_value_string_utf8(env, argv[0], &path);
+  napi_get_value_string_utf8(env, argv[0], -1, &path);
 
   napi_value napi_result;
   int result = openFileSystem(path);
