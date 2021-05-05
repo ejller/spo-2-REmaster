@@ -31,34 +31,34 @@ void reverseHFSPlusForkData(HFSPlusForkData *s) {
 }
 
 void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
-    s->signature = bswap_16(s->signature);
-    s->version = bswap_16(s->version);
-    s->attributes = bswap_32(s->attributes);
-    s->lastMountedVersion = bswap_32(s->lastMountedVersion);
-    s->journalInfoBlock = bswap_32(s->journalInfoBlock);
-    s->createDate = bswap_32(s->createDate);
-    s->modifyDate = bswap_32(s->modifyDate);
-    s->backupDate = bswap_32(s->backupDate);
-    s->checkedDate = bswap_32(s->checkedDate);
-    s->fileCount = bswap_32(s->fileCount);
-    s->folderCount = bswap_32(s->folderCount);
-    s->blockSize = bswap_32(s->blockSize);
-    s->totalBlocks = bswap_32(s->totalBlocks);
-    s->freeBlocks = bswap_32(s->freeBlocks);
-    s->nextAllocation = bswap_32(s->nextAllocation);
-    s->rsrcClumpSize = bswap_32(s->rsrcClumpSize);
-    s->dataClumpSize = bswap_32(s->dataClumpSize);
-    s->nextCatalogID = bswap_32(s->nextCatalogID);
-    s->writeCount = bswap_32(s->writeCount);
-    s->encodingsBitmap = bswap_64(s->encodingsBitmap);
-    for (int i = 0; i < 8; i++) {
-        s->finderInfo[i] = bswap_32(s->finderInfo[i]);
-    }
-    reverseHFSPlusForkData(&s->allocationFile);
-    reverseHFSPlusForkData(&s->attributesFile);
-    reverseHFSPlusForkData(&s->extentsFile);
-    reverseHFSPlusForkData(&s->catalogFile);
-    reverseHFSPlusForkData(&s->startupFile);
+//    s->signature = bswap_16(s->signature);
+//    s->version = bswap_16(s->version);
+//    s->attributes = bswap_32(s->attributes);
+//    s->lastMountedVersion = bswap_32(s->lastMountedVersion);
+//    s->journalInfoBlock = bswap_32(s->journalInfoBlock);
+//    s->createDate = bswap_32(s->createDate);
+//    s->modifyDate = bswap_32(s->modifyDate);
+//    s->backupDate = bswap_32(s->backupDate);
+//    s->checkedDate = bswap_32(s->checkedDate);
+//    s->fileCount = bswap_32(s->fileCount);
+//    s->folderCount = bswap_32(s->folderCount);
+//    s->blockSize = bswap_32(s->blockSize);
+//    s->totalBlocks = bswap_32(s->totalBlocks);
+//    s->freeBlocks = bswap_32(s->freeBlocks);
+//    s->nextAllocation = bswap_32(s->nextAllocation);
+//    s->rsrcClumpSize = bswap_32(s->rsrcClumpSize);
+//    s->dataClumpSize = bswap_32(s->dataClumpSize);
+//    s->nextCatalogID = bswap_32(s->nextCatalogID);
+//    s->writeCount = bswap_32(s->writeCount);
+//    s->encodingsBitmap = bswap_64(s->encodingsBitmap);
+//    for (int i = 0; i < 8; i++) {
+//        s->finderInfo[i] = bswap_32(s->finderInfo[i]);
+//    }
+//    reverseHFSPlusForkData(&s->allocationFile);
+//    reverseHFSPlusForkData(&s->attributesFile);
+//    reverseHFSPlusForkData(&s->extentsFile);
+//    reverseHFSPlusForkData(&s->catalogFile);
+//    reverseHFSPlusForkData(&s->startupFile);
 }
 
 void reverseBTNodeDescriptor(BTNodeDescriptor *s) {
