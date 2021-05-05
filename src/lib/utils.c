@@ -4,11 +4,11 @@ static FileSystem *fs;
 
 //export
 int openFileSystem(char *name) {
-printf(name);
-    HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
-    int fd = open(name, O_RDONLY, 00666);
-    pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
-    reverseHFSPlusVolumeHeader(header);
+printf("%s",name);
+    //HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader));
+    //int fd = open(name, O_RDONLY, 00666);
+    //pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
+    //reverseHFSPlusVolumeHeader(header);
 //    if (header->signature == HFS_PLUS_SIGNATURE && header->version == HFS_PLUS_VERSION) {
 //        FileSystem *fileSystem = malloc(sizeof(FileSystem));
 //        fileSystem->volumeHeader = header;
