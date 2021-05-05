@@ -3,7 +3,7 @@
 static FileSystem *fs;
 
 int openFileSystem(char *name) {
-    HFSPlusVolumeHeader *header = malloc(sizeof(struct HFSPlusVolumeHeader)+4);
+    HFSPlusVolumeHeader *header = malloc(HEADER_SIZE);
     int fd = open(name, O_RDONLY, 00666);
     pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
     reverseHFSPlusVolumeHeader(header);
