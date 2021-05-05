@@ -11,10 +11,10 @@ napi_value first_mode_fn(napi_env env, napi_callback_info info) {
 }
 
 napi_value pwd_fn(napi_env env, napi_callback_info info) {
-  napi_value napi_result;
-  char *result = pwd();
-  napi_create_string_utf8(env, result, -1, &napi_result);
-  return napi_result;
+//  napi_value napi_result;
+//  char *result = pwd();
+//  napi_create_string_utf8(env, result, -1, &napi_result);
+//  return napi_result;
 }
 
 napi_value ls_fn(napi_env env, napi_callback_info info) {
