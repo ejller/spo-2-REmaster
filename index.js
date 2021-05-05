@@ -8,6 +8,7 @@ const main = () => {
     } else {
         const path = getFilePath();
         const fileSystem = addon.open_file_system(path)
+        console.log(fileSystem)
         if(fileSystem==0){
             console.log('work')
         }
