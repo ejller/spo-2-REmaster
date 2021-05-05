@@ -48,7 +48,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 
   if (status != napi_ok) {
     napi_throw_error(env, NULL, "Invalid number was passed as argument");
-
+}
 //  char PathName[4];
 //  size_t pathResult;
 //  napi_get_value_string_utf8(env, argv[0], PathName, 4, &pathResult);
