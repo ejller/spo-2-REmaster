@@ -1,5 +1,5 @@
 import {getMode, getFilePath, getCommand} from './input.js';
-import addon from './build/Release/lab2';
+import addon from './build/Release/lab2.node';
 
 const main = () => {
     const mode = getMode()
