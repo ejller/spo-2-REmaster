@@ -5,7 +5,7 @@ static FileSystem *fs;
 int openFileSystem(char *name) {
     HFSPlusVolumeHeader *header = malloc(1000);
     int fd = open(name, O_RDONLY, 00666);
-    pread(fd, header, sizeof(struct HFSPlusVolumeHeader), HEADER_OFFSET);
+    pread(fd, header, 1000, HEADER_OFFSET);
     reverseHFSPlusVolumeHeader(header);
     if (header->signature == HFS_PLUS_SIGNATURE && header->version == HFS_PLUS_VERSION) {
         FileSystem *fileSystem = malloc(sizeof(FileSystem));
