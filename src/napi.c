@@ -60,6 +60,23 @@ napi_value cd_fn(napi_env env, napi_callback_info info) {
   return napi_result;
 }
 
+napi_value cp_fn(napi_env env, napi_callback_info info) {
+  napi_status status;
+  size_t argc = 1;
+  napi_value argv[1];
+  napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
+  char path1[INPUT_SIZE];
+  char path2[INPUT_SIZE];
+  size_t path1Result;
+  size_t path2Result;
+  napi_get_value_string_utf8(env, argv[0], path1, INPUT_SIZE, &path1Result);
+  napi_get_value_string_utf8(env, argv[1], path2, INPUT_SIZE, &path2Result);
+  napi_value napi_result;
+  char *result = cp(path1, path2);
+  napi_create_string_utf8(env, result, -1, &napi_result);
+  return napi_result;
+}
+
 
 
 napi_value Init(napi_env env, napi_value exports) {
@@ -78,6 +95,10 @@ napi_value Init(napi_env env, napi_value exports) {
   napi_value cd;
   napi_create_function(env, NULL, 0, cd_fn, NULL, &cd);
   napi_set_named_property(env, exports, "cd", cd);
+
+  napi_value cp;
+  napi_create_function(env, NULL, 0, cp_fn, NULL, &cp);
+  napi_set_named_property(env, exports, "cp", cp);
 
   napi_value open_file_system;
   napi_create_function(env, NULL, 0, open_file_system_fn, NULL, &open_file_system);

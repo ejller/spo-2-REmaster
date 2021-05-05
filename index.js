@@ -20,7 +20,7 @@ const parseCommand = (fileSystem, value) => {
         console.log("exit - stop program");
         console.log("help - print help");
     } else if (parseValidArgs(value, 2) && value.command === 'cp') {
-        // console.log(library.cp(fileSystem, value.args[0], value.args[1]))
+        console.log(addon.cp(value.args[0], value.args[1]))
     } else {
         console.log("Invalid command. Enter help")
     }

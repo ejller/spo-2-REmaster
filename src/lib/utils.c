@@ -69,7 +69,6 @@ char *ls() {
 }
 
 
-//export
 char *cd(char *path) {
      char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
@@ -118,6 +117,8 @@ char *pwd() {
 
 //export
 char *cp(char *path, char *outPath) {
+       printf(path);
+       printf(outPath);
      char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
     if (path == NULL || outPath == NULL) {
