@@ -36,9 +36,9 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 //  char *path="/home/new.fs";
 
 //    size_t str_size;
-   char *output =(char*)malloc(sizeof(char)*20);
+   char *output =(char*)malloc(sizeof(char)*50);
    size_t str_size_read;
-   napi_get_value_string_utf8(env, argv[0], output, 2, 2);
+   napi_get_value_string_utf8(env, argv[0], output, 5, 5);
 
   napi_value napi_result;
   int result = openFileSystem(output);
