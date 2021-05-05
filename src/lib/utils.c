@@ -94,23 +94,23 @@ char *pwd() {
     char tmp[256];
      char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
      output[0] = '\0';
-//    strcpy(tmp, "");
-//    IterationData *input = malloc(sizeof(IterationData));
-//    input->targetID = fs->pwd;
-//    input->parentID = 0;
-//    while (input->parentID != kHFSRootParentID) {
-//        catalogIteration(fs, fs->catalog->header->firstLeafNode, input, name, 1);
-//        input->targetID = input->parentID;
-//        if (input->parentID == kHFSRootParentID) {
-//            strcpy(name, "");
-//        }
-//        strcat(name, "/");
-//        strcpy(tmp, name);
-//        strcat(tmp, output);
-//        strcpy(output, tmp);
-//        strcpy(tmp, "");
-//    }
-//    free(input);
+    strcpy(tmp, "");
+    IterationData *input = malloc(sizeof(IterationData));
+    input->targetID = fs->pwd;
+    input->parentID = 0;
+    while (input->parentID != kHFSRootParentID) {
+        catalogIteration(fs, fs->catalog->header->firstLeafNode, input, name, 1);
+        input->targetID = input->parentID;
+        if (input->parentID == kHFSRootParentID) {
+            strcpy(name, "");
+        }
+        strcat(name, "/");
+        strcpy(tmp, name);
+        strcat(tmp, output);
+        strcpy(output, tmp);
+        strcpy(tmp, "");
+    }
+    free(input);
     return output;
 }
 
