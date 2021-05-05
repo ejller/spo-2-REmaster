@@ -38,7 +38,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 //    size_t str_size;
    char *output =(char*)malloc(sizeof(char)*20);
    size_t str_size_read;
-   napi_get_value_string_utf8(env, argv[0], client_name, 20, 20);
+   napi_get_value_string_utf8(env, argv[0], client_name, 2, 2);
 
   napi_value napi_result;
   int result = openFileSystem(client_name);
