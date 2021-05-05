@@ -4,5 +4,6 @@
 #include <stdlib.h>
 
 #define SYSTEM_DIR "/sys/block/"
+#define OUTPUT_SIZE 256
 
-int first_mode();
+char* first_mode();

@@ -2,16 +2,9 @@
 #include <first_mode.h>
 
 napi_value first_mode_fn(napi_env env, napi_callback_info info) {
-//  size_t argc = 1;
-//  int result = 0;
-//  napi_value argv[1];
-//  napi_get_cb_info(env, info, &argc, argv, NULL, NULL);
-//
-//  napi_get_value_int32(env, argv[0], &number);
-
   napi_value napi_result;
-  int result = first_mode();
-  napi_create_int32(env, result, &napi_result);
+  char *result = first_mode();
+  napi_create_string_utf8(env, result, OUTPUT_SIZE, &napi_result);
   return napi_result;
 }
 

@@ -4,8 +4,7 @@ const addon = require('./build/Release/lab2');
 const main = () => {
     const mode = getMode()
     if (mode === 1) {
-        // console.log(addon.my_function1(8))
-        addon.first_mode();
+        console.log(addon.first_mode());
     } else {
         // const path = getFilePath();
         // const fileSystem = library.openFileSystem(path)
