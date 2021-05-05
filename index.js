@@ -11,7 +11,7 @@ const parseCommand = (fileSystem, value) => {
     } else if (parseValidArgs(value, 0) && value.command === 'pwd') {
         // console.log(addon.pwd())
     } else if (parseValidArgs(value, 0) && value.command === 'ls') {
-        // console.log(addon.ls())
+        console.log(addon.ls())
     } else if (parseValidArgs(value, 0) && value.command === 'help') {
         console.log("cd [path] - change working directory");
         console.log("cp [input path] [output path] - copy");
