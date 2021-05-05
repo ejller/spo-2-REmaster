@@ -117,10 +117,8 @@ char *pwd() {
 
 //export
 char *cp(char *path, char *outPath) {
-       printf(path);
-       printf(outPath);
-     char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
-     output[0] = '\0';
+    char *output =(char*)malloc(sizeof(char)*OUTPUT_SIZE);
+    output[0] = '\0';
     if (path == NULL || outPath == NULL) {
        strcat(output, "Empty path\n");
         return output;
