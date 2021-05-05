@@ -96,8 +96,8 @@ void catalogIteration(FileSystem *fileSystem, UInt32 nodeNumber, IterationData *
 int copy(FileSystem *fileSystem, NodeInfo *info, char *path);
 
 int openFileSystem(char *name);
-int closeFileSystem();
-char *ls();
-char *cd(char *path);
-char *pwd();
-char *cp(char *path, char *outPath);
+int closeFileSystem(FileSystem *fs);
+char *ls(FileSystem *fs);
+char *cd(FileSystem *fs, char *path);
+char *pwd(FileSystem *fs);
+char *cp(FileSystem *fs, char *path, char *outPath);
