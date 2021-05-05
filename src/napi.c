@@ -37,7 +37,7 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
 
   size_t str_size;
   size_t str_size_read;
-  napi_get_value_string_utf8(env, args[1], NULL, 0, &str_size);
+  napi_get_value_string_utf8(env, argv[1], NULL, 0, &str_size);
   char * buf;
   buf = (char*)calloc(str_size + 1, sizeof(char));
   str_size = str_size + 1;
