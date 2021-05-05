@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "compile": "cmake-js -O ./build compile"
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/ejller/spo-2-REmaster#readme",
   "dependencies": {
     "cmake-js": "^6.1.0",
-    "node-addon-api": "^3.1.0"
+    "node-addon-api": "^3.1.0",
+    "readline-sync": "^1.4.10"
   }
 }
