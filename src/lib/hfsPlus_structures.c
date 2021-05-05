@@ -31,7 +31,7 @@ void reverseHFSPlusForkData(HFSPlusForkData *s) {
 }
 
 void reverseHFSPlusVolumeHeader(HFSPlusVolumeHeader *s) {
-//    s->signature = bswap_16(s->signature);
+    s->signature = bswap_16(s->signature);
 //    s->version = bswap_16(s->version);
 //    s->attributes = bswap_32(s->attributes);
 //    s->lastMountedVersion = bswap_32(s->lastMountedVersion);
