@@ -35,13 +35,13 @@ napi_value open_file_system_fn(napi_env env, napi_callback_info info) {
   napi_value argv[1];
 //  char *path="/home/new.fs";
 
-    size_t str_size;
-    char *client_name = (char*)calloc(str_size + 1, sizeof(char));
+//    size_t str_size;
+    char *client_name = (char*)malloc(20);
     size_t str_size_read;
-   napi_get_value_string_utf8(env, argv[0], client_name, str_size, &str_size_read);
+   napi_get_value_string_utf8(env, argv[0], client_name, 20, 20);
 
   napi_value napi_result;
-  int result = openFileSystem("etetet");
+  int result = openFileSystem(client_name);
   napi_create_int32(env, result, &napi_result);
   return napi_result;
 }
